@@ -1,15 +1,14 @@
 
 public class Player {
-   private static String playerName;
-   private static String pName;
-   private static int playerCount;
+    String playerName;
+    int playerCount;
    
    
-   Player(String name){
-      playerName = name;
+   public Player(String name){
+	  playerName = name;
    }
-   Player(){
-	   pName = "Computer";
+   public Player(){
+	   playerName = "Computer";
    }
      /**************************************************************
      * 
@@ -22,6 +21,9 @@ public class Player {
      **************************************************************/
    public int getPlayerCount() {
 		return playerCount;
+	}
+   public void increasePCount() {
+		playerCount++;
 	}
      /**************************************************************
      * 
@@ -56,10 +58,10 @@ public class Player {
      *  @param          int s
      *
      **************************************************************/
-	private void setPlayerCount(int s) {
+	public void setPlayerCount(int s) {
 		playerCount = s;
 	}
 	public String toString() {
-		return "Player: " + this.getPlayerName() + " Score: " + this.getPlayerCount();
+		return "Player: " + getPlayerName() + " Score: " + getPlayerCount();
 	}
 }
