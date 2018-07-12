@@ -24,6 +24,7 @@ public class RPS {
 	private static Player p1;
 	private static Player p2;
 	private static int n;
+	boolean replayBool = true;
 	
 
 	public RPS(int max, int numPlayers) {
@@ -88,16 +89,13 @@ public class RPS {
 		while( p1.getPlayerCount() <= maxRound && p2.getPlayerCount() <= maxRound) {
 			String[] choices = {"Rock", "Paper", "Scissors"};
 			int ai = choice();
-	        n = JOptionPane.showOptionDialog(null,
-	         "Please make a choice","RPS",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,choices,choices[2]);
+			n = JOptionPane.showOptionDialog(null, "Please make a choice","RPS",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,choices,choices[2]);
 			winner(n, ai);
 			String[] one = {"Ok"};
-			String summary = p1.getPlayerName() + " has chosen: " + choices[ai - 1] + "\n" + p2.getPlayerName() + " has chosen: " + choices[n] + "\n" + choices[n] + " wins!\n" + winnerName(win) + "\n" + p1.getPlayerName() + " score: " + p1.getPlayerCount() + " \n" + p2.getPlayerName() + " score: " + p2.getPlayerCount();
-	        JOptionPane.showOptionDialog(null, summary ,"RPS",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,one,one[0]);
+			String summary = p1.getPlayerName() + " has chosen: " + choices[n] + "\n" + p2.getPlayerName() + " has chosen: " + choices[ai - 1] + "\n" + winnerName(win) + "\n" + p1.getPlayerName() + " score: " + p1.getPlayerCount() + " \n" + p2.getPlayerName() + " score: " + p2.getPlayerCount();
+			JOptionPane.showOptionDialog(null, summary ,"RPS",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,one,one[0]);
 		}
-		String[] replay = {"Yes", "No"};
-        n = JOptionPane.showOptionDialog(null,
-         "Thanks for playing! Would you like to replay?","RPS",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,replay,replay[1]);
+			
 	}
 	public String winnerName(boolean r) {
 		String temp = "";
